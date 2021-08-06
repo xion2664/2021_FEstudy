@@ -15,19 +15,37 @@
             <img src="{%static 'img/Logo.png'%}" alt="로고" height="50px">
         </div>
         <div class="header__center">
-            <span class="logo">Animal Cards</span>
+            <a href="{%url 'home'%}">
+                <span class="logo" id="logo-front">Animal</span>
+                <span class="logo" id="logo-back">Cards</span>
+            </a>
         </div>
         <div class="header__right">
             <img src="{%static 'img/upload.png'%}" alt="업로드" id="upload-img" height="35px">
-            <img src="{%static 'img/moon.png'%}" alt="다크모드" id="color-img" height="30px">
+            <button id="color-img" onclick="darkMode()">D</button>
         </div>
     </header>
+
+    <script>
+        function darkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+
+            var button = document.getElementById("color-img");
+            if(button.innerHTML == "D") {
+                button.innerHTML = "L";
+            }
+            else {
+                button.innerHTML = "D";
+            }
+        }
+    </script>
 
     <div class="main">
         <div class="center">
             <div class="search">
-                <form action="#" class="search-form" method="GET">
-                    <input type="text" name="search_text" class="search-input" placeholder="Search">
+                <form action="{%url 'home'%}" class="search-form" method="get">
+                    <input type="text" name="search_text" class="search-input" placeholder="검색">
                     <button class="search-button"><img src="{%static 'img/search.png'%}" alt="검색" height="30px"></button>
                 </form>
             </div>
