@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/font.css'%}">
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <title>Animal Cards</title>
+</head>
+<body>
+    <header>
+        <div class="header__left">
+            <img src="{%static 'img/Logo.png'%}" alt="로고" height="50px">
+        </div>
+        <div class="header__center">
+            <span class="logo">Animal Cards</span>
+        </div>
+        <div class="header__right">
+            <img src="{%static 'img/upload.png'%}" alt="업로드" id="upload-img" height="35px">
+            <img src="{%static 'img/moon.png'%}" alt="다크모드" id="color-img" height="30px">
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="center">
+            <div class="search">
+                <form action="#" class="search-form" method="GET">
+                    <input type="text" name="search_text" class="search-input" placeholder="Search">
+                    <button class="search-button"><img src="{%static 'img/search.png'%}" alt="검색" height="30px"></button>
+                </form>
+            </div>
+            <div class="container">
+                {%for a in firsts%}
+                <div class="block">
+                    <div class="image">
+                        <img src="{{ a.image.url }}" alt="동물 사진" height="150px">
+                    </div>
+                    <div class="text">
+                        <div class="title">
+                            {{a.title}}
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="{%static 'img/xionLogo.svg'%}" alt="제작자 로고" height="30px">
+        <p>ⓒ 2021. xion All rights reserved.</p>
+    </footer>
+</body>
+</html>
